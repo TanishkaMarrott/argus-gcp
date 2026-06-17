@@ -179,16 +179,6 @@ remediation_owner: platform-team
 
 ---
 
-## Regenerate architecture diagram
-
-```bash
-pip install diagrams
-brew install graphviz
-python3 infra/diagram.py
-```
-
----
-
 ## Tech stack
 
 | Component | Technology |
