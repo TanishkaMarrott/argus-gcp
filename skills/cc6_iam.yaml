@@ -1,0 +1,24 @@
+skill: cc6_iam
+control: CC6.3
+control_name: "Logical Access Controls — Least Privilege"
+description: >
+  IAM bindings must follow least privilege. Primitive roles (owner/editor)
+  on service accounts are prohibited. Public bindings require explicit approval.
+  Service account keys must be rotated every 90 days.
+finding_types:
+  - primitive_role
+  - public_binding
+  - stale_key
+sla_days:
+  HIGH: 7
+  MEDIUM: 30
+  LOW: 90
+auditor_evidence_needed:
+  - IAM policy export before and after remediation
+  - Screenshot of removed binding in Cloud Console
+  - Ticket number for remediation tracking
+  - Confirmation of least-privilege replacement role
+zero_tolerance:
+  - public_binding
+review_frequency_days: 7
+remediation_owner: platform-team

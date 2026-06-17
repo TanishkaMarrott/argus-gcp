@@ -1,0 +1,26 @@
+skill: cc6_network
+control: CC6.6
+control_name: "Logical Access Controls — Network Restrictions"
+description: >
+  Cloud SQL instances must not have public IPs, must require SSL,
+  and must not have authorized networks open to 0.0.0.0/0.
+  Encryption in transit is mandatory for all database connections.
+finding_types:
+  - public_ip
+  - ssl_not_required
+  - open_authorized_network
+sla_days:
+  HIGH: 7
+  MEDIUM: 14
+  LOW: 30
+auditor_evidence_needed:
+  - Cloud SQL instance settings before and after patch
+  - Screenshot confirming public IP disabled
+  - SSL enforcement confirmation
+  - Network authorized networks list (empty or org-restricted)
+zero_tolerance:
+  - public_ip
+  - ssl_not_required
+  - open_authorized_network
+review_frequency_days: 7
+remediation_owner: dba-team

@@ -1,0 +1,20 @@
+skill: a1_availability
+control: A1.2
+control_name: "Availability — Backup and Recovery"
+description: >
+  Cloud SQL automated backups must be enabled. Failure to maintain backups
+  violates availability commitments and SOC 2 criteria A1.2.
+finding_types:
+  - backups_disabled
+sla_days:
+  HIGH: 7
+  MEDIUM: 30
+  LOW: 90
+auditor_evidence_needed:
+  - Backup configuration screenshot
+  - Confirmation of retention period
+  - Evidence of backup test/restore exercise
+zero_tolerance:
+  - backups_disabled
+review_frequency_days: 30
+remediation_owner: dba-team
